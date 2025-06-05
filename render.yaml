@@ -1,0 +1,12 @@
+services:
+  - type: worker
+    name: projetoteste
+    env: python
+    plan: free
+    branch: main
+    buildCommand: "pip install -r requirements.txt && playwright install --with-deps"
+    startCommand: "python main.py"
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.10"
